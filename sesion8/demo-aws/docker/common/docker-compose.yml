@@ -1,0 +1,22 @@
+eurekaserver:
+   image:   <ecr-uri>/eurekasvr:chapter10
+   mem_limit: 500000000            
+   ports:
+       - "8761:8761"
+
+
+
+licensingservice:
+    image: <ecr-uri>/licensing-service:chapter10
+    mem_limit: 500000000
+    ports:
+      - "8080:8080"
+    links:
+       - "eurekaserver:eurekaserver"
+    environment:
+      SERVER_PORT: "8080"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/user"
+      ENCRYPT_KEY:       "IMSYMMETRIC"
+

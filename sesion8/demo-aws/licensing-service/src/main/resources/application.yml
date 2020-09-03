@@ -1,0 +1,57 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        inboundOrgChanges:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  database:
+    driverClassName: org.postgresql.Driver
+
+  datasource:
+    url: jdbc:postgresql://rds-endpoint:5432/eagle_eye_local
+    username: postgres_aws_dev
+    password: postgres_aws_dev
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    platform: postgres
+
+example:
+  property: I AM IN THE DEFAULT
+redis:
+  server: redis
+  port: 6379
+
+security:
+  oauth2:
+   resource:
+      userInfoUri: http://localhost:8901/auth/user
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG
+
+signing:
+  key: 345345fsdfsf5345

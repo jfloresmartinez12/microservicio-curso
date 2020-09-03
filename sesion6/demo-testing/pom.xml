@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cnj</groupId>    
+    <artifactId>testing-basics</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+        <relativePath />
+    </parent>
+    <properties>
+
+
+        <!-- Spring Batch -->
+        <spring-batch.version>4.0.0.M1</spring-batch.version>
+
+        <!-- Spring Cloud -->
+        <spring-cloud-task.version>1.1.2.RELEASE</spring-cloud-task.version>
+        <spring-cloud-dependencies.version>Dalston.RELEASE</spring-cloud-dependencies.version>
+        <!-- <spring-cloud-dataflow.version>1.1.0.RELEASE</spring-cloud-dataflow.version> -->
+
+        <spring-cloud-dataflow.version>1.2.0.RELEASE</spring-cloud-dataflow.version>
+
+        <!-- General -->
+        <bootiful.version>1.0.0-SNAPSHOT</bootiful.version>
+
+        <java.version>1.8</java.version>
+
+        <!-- to support the reactive cloud foundry client -->
+        <cloudfoundry-client.version>2.9.0.RELEASE</cloudfoundry-client.version>
+        <reactor-core.version>3.0.6.RELEASE</reactor-core.version>
+        <reactor-netty.version>0.6.2.RELEASE</reactor-netty.version>
+    </properties>
+
+    <modules>
+        <module>account-service</module>
+        <module>user-service</module>
+        <module>basics</module>
+    </modules>
+
+</project>
